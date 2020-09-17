@@ -11,6 +11,7 @@
 
 
 $(document).ready(function() {
+  // AJAX BASE
   $.ajax(
     {
       url: "https://flynn.boolean.careers/exercises/api/array/music",
@@ -25,23 +26,18 @@ $(document).ready(function() {
       }
     }
   );
+  // /AJAX BASE
 
-  $(".genereMusica").on("click", function() {
-    var genere = $(this).val();
-    console.log(genere);
-    // if (genere == rock) {
-      //
-      // } else if (genere == pop) {
-        //
-        // } else if (genere == jazz) {
-          //
-          // } else if (genere == metal) {
-            //
-            // } else if (genere == all) {
-              //
-              // }
-            });
+  // SELEZIONE GENERE
+  $('#genre').on('click', function() {
+    var value = $(this).val();
+    alert(value);
+        selectionGenre(value);
+  });
+  // /SELEZIONE GENERE
 });
+
+// FUNCTION
 
 function analisiDati(response, genere) {
   for (var i = 0; i < response.length; i++) {
@@ -51,4 +47,29 @@ function analisiDati(response, genere) {
     var html = template(infoCd);
     $(".cds-container").append(html);
   }
+}
+
+function selectionGenre(value) {
+    $(".cd").addClass("invisible");
+    if (value == "rock") {
+      $("[data-genere*="Rock"]").each(function() {
+        $(this).removeClass("invisible");
+    });
+    } else if (value == "pop") {
+      $("[data-genere*="Pop"]").each(function() {
+        $(this).removeClass("invisible");
+    });
+    } else if (value == "jazz") {
+      $("[data-genere*="Jazz"]").each(function() {
+        $(this).removeClass("invisible");
+    });
+    } else if (value == "metal") {
+      $("[data-genere*="Metal"]").each(function() {
+        $(this).removeClass("invisible");
+    });
+    } else if (value == "all") {
+      $(".cd").each(function() {
+        $(this).removeClass("invisible");
+    });
+    }
 }
