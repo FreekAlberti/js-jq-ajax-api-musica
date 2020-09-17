@@ -31,8 +31,7 @@ $(document).ready(function() {
   // SELEZIONE GENERE
   $('#genre').on('click', function() {
     var value = $(this).val();
-    alert(value);
-        selectionGenre(value);
+    selectionGenre(value);
   });
   // /SELEZIONE GENERE
 });
@@ -52,19 +51,19 @@ function analisiDati(response, genere) {
 function selectionGenre(value) {
     $(".cd").addClass("invisible");
     if (value == "rock") {
-      $("[data-genere*="Rock"]").each(function() {
+      $("[data-genere*=Rock]").each(function() {
         $(this).removeClass("invisible");
     });
     } else if (value == "pop") {
-      $("[data-genere*="Pop"]").each(function() {
+      $("[data-genere*=Pop]").each(function() {
         $(this).removeClass("invisible");
     });
     } else if (value == "jazz") {
-      $("[data-genere*="Jazz"]").each(function() {
+      $("[data-genere*=Jazz]").each(function() {
         $(this).removeClass("invisible");
     });
     } else if (value == "metal") {
-      $("[data-genere*="Metal"]").each(function() {
+      $("[data-genere*=Metal]").each(function() {
         $(this).removeClass("invisible");
     });
     } else if (value == "all") {
