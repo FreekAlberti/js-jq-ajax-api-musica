@@ -32,6 +32,6 @@ function analisiDati(response) {
     var template = Handlebars.compile(source);
     var infoCd = response[i];
     var html = template(infoCd);
-    $(".container").append(html);
+    $(".cds-container").append(html);
   }
 }
