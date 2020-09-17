@@ -17,6 +17,7 @@ $(document).ready(function() {
       method: "GET",
       success: function (data, stato) {
         var response = data.response;
+        console.log(response);
         analisiDati(response);
       },
       error: function (richiesta, stato, errori) {
@@ -24,9 +25,25 @@ $(document).ready(function() {
       }
     }
   );
+
+  $(".genereMusica").on("click", function() {
+    var genere = $(this).val();
+    console.log(genere);
+    // if (genere == rock) {
+      //
+      // } else if (genere == pop) {
+        //
+        // } else if (genere == jazz) {
+          //
+          // } else if (genere == metal) {
+            //
+            // } else if (genere == all) {
+              //
+              // }
+            });
 });
 
-function analisiDati(response) {
+function analisiDati(response, genere) {
   for (var i = 0; i < response.length; i++) {
     var source = $("#entry-template").html();
     var template = Handlebars.compile(source);
